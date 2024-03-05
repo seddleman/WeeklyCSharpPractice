@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace WeeklyCSharpPractice.Core.CodeWar.Practice
 {
-    public class Rocks
+    public partial class Practice
     {
-        public long TotalCost(long numberOfRocks)
+        public static long RockLabelTotalCost(long numberOfRocks)
         {
             long count = 0;
             for (int i = 1; i <= numberOfRocks; i++) count += i.ToString().Length;

@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WeeklyCSharpPractive.Core\WeeklyCSharpPractive.Core.csproj" />
+    <ProjectReference Include="..\WeeklyCSharpPractice.Core\WeeklyCSharpPractice.Core.csproj" />
   </ItemGroup>
 
 </Project>

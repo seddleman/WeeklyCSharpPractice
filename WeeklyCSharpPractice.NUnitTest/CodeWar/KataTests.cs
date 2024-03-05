@@ -13,8 +13,6 @@ namespace WeeklyCSharpPractice.NUnitTest.CodeWar
         [Test]
         public void ArrayDiffTest()
         {
-            
-
             Assert.AreEqual(new int[] { 2 }, Kata.ArrayDiff(new int[] { 1, 2 }, new int[] { 1 }));
             Assert.AreEqual(new int[] { 2, 2 }, Kata.ArrayDiff(new int[] { 1, 2, 2 }, new int[] { 1 }));
             Assert.AreEqual(new int[] { 1 }, Kata.ArrayDiff(new int[] { 1, 2, 2 }, new int[] { 2 }));
@@ -28,7 +26,6 @@ namespace WeeklyCSharpPractice.NUnitTest.CodeWar
         [Test]
         public void SquareDigitsTest()
         {
-
             Assert.AreEqual(811181, Kata.SquareDigits(9119));
             Assert.AreEqual(0, Kata.SquareDigits(0));
         }
@@ -69,6 +66,22 @@ namespace WeeklyCSharpPractice.NUnitTest.CodeWar
         public void MoveZerosTest()
         {
             Assert.AreEqual(new int[] { 1, -2, 1, 1, 3, 1, 0, 0, 0, 0 }, Kata.MoveZeroes(new int[] { 1, -2, 0, 1, 0, 1, 0, 3, 0, 1 }));
+        }
+
+        [Test]
+        public static void SpinWordsTest()
+        {
+            Assert.AreEqual("emocleW", Kata.SpinWords("Welcome"));
+        
+            Assert.AreEqual("Hey wollef sroirraw", Kata.SpinWords("Hey fellow warriors"));
+        
+            Assert.AreEqual("This is a test", Kata.SpinWords("This is a test"));
+        
+            Assert.AreEqual("This is rehtona test", Kata.SpinWords("This is another test"));
+       
+            Assert.AreEqual("You are tsomla to the last test", Kata.SpinWords("You are almost to the last test"));
+        
+            Assert.AreEqual("Just gniddik ereht is llits one more", Kata.SpinWords("Just kidding there is still one more"));
         }
     }
 }
