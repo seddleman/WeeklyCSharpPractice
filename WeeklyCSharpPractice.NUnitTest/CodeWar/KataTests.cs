@@ -83,5 +83,11 @@ namespace WeeklyCSharpPractice.NUnitTest.CodeWar
         
             Assert.AreEqual("Just gniddik ereht is llits one more", Kata.SpinWords("Just kidding there is still one more"));
         }
+
+        [Test]
+        public void FindTheOddIntTests()
+        {
+            Assert.AreEqual(5, Kata.FindTheOddInt(new[] { 20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5 }));
+        }
     }
 }
