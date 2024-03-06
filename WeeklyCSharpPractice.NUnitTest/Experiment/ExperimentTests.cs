@@ -10,7 +10,7 @@ namespace WeeklyCSharpPractice.NUnitTest.Experiments
         }
 
         [Test]
-        public void EnumTest01()
+        public void EnumTest()
         {
             // act
             var little = Experiment.GetEnumLabel(ExperimentEnum.LittleChange);
