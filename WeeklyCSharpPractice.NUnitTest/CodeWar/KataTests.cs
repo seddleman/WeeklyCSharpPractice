@@ -139,11 +139,12 @@ namespace WeeklyCSharpPractice.NUnitTest.CodeWar
         }
 
         [Test]
-        public void MorseCodeDecoderBasicTest1()
+        public void MorseCodeDecoderBasicTest()
         {
             try
             {
                 string input = ".... . -.--   .--- ..- -.. .";
+                string test = "....   .   -.--       .---   ..-   -..";
                 string expected = "HEY JUDE";
 
                 string actual = Kata.MorseCodeDecoder(input);
@@ -154,6 +155,24 @@ namespace WeeklyCSharpPractice.NUnitTest.CodeWar
             {
                 Assert.Fail("There seems to be an error somewhere in your code. Exception message reads as follows: " + ex.Message);
             }
+        }
+
+        [Test]
+        public void MorseCodeDecoderAdvanceTest()
+        {
+            Assert.AreEqual("HEY JUDE", Kata.MorseCodeDecoder(Kata.MorseDecodeBits("001100110011001100000011000000111111001100111111001111110000000000000011001111110011111100111111000000110011001111110000001111110011001100000011")));
+            Assert.AreEqual("HEY JUDE", Kata.MorseCodeDecoder(Kata.MorseDecodeBits("1100110011001100000011000000111111001100111111001111110000000000000011001111110011111100111111000000110011001111110000001111110011001100000011")));
+        }
+
+        [Test]
+        public void StripCommentsTest()
+        {
+            //Assert.AreEqual(
+            //        "apples, pears\ngrapes\nbananas",
+            //        Kata.StripComments("apples, pears # and bananas\ngrapes\nbananas !apples", new string[] { "#", "!" }));
+
+            Assert.AreEqual("a\nc\nd", Kata.StripComments("a #b\nc\nd $e f g", new string[] { "#", "$" }));
+            Assert.AreEqual("\na\nc\nd", Kata.StripComments("\na #b\nc\nd $e f g", new string[] { "#", "$" }));
         }
     }
 }

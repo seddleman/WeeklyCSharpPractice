@@ -40,9 +40,42 @@ namespace WeeklyCSharpPractice.Core.CodeWar.Kata
         // ADVANACED PROBLEM (Part 2)
 
         //  My Solution
-        public static string DecodeBits(string bits)
+        public static string MorseDecodeBits(string bits)
         {
-            return ".";
+            var dictionary = new Dictionary<int, int>();
+            var previous = '0';
+            var signal = 0;
+            foreach (var c in bits.Trim(previous))
+            {
+                if (c == previous) dictionary[signal] += 1;
+                else
+                {
+                    signal++;
+                    dictionary.Add(signal, 1);
+                }
+                previous = c;
+            }
+
+            var min = dictionary.Values.Min(c => c);
+            var nextChar = '1';
+            var morseCode = string.Empty;
+            foreach (var bit in dictionary.Values)
+            {
+                if (nextChar == '1')
+                {
+                    if (bit / min == 1) morseCode += ".";
+                    else morseCode += "-";
+                    nextChar = '0';
+                }
+                else
+                {
+                    if (bit / min == 3) morseCode += " ";
+                    else if (bit / min > 3) morseCode += "   ";
+                    nextChar = '1';
+                }
+            }
+
+            return morseCode.Trim();
         }
 
 
