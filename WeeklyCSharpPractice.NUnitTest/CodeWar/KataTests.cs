@@ -120,22 +120,16 @@ namespace WeeklyCSharpPractice.NUnitTest.CodeWar
         }
 
         [Test]
-        public static void SampleTest_a()
+        public static void DictCountCharInStringTest()
         {
             Dictionary<char, int> d = new Dictionary<char, int>();
             d.Add('a', 1);
-            string s = "a";
-            Tester(d, Kata.DictCountCharInString(s), s);
-        }
+            Assert.That(Kata.DictCountCharInString("a"), Is.EqualTo(d));
 
-        [Test]
-        public static void SampleTest_aba()
-        {
-            Dictionary<char, int> d = new Dictionary<char, int>();
-            d.Add('a', 2);
-            d.Add('b', 1);
-            string s = "aba";
-            Tester(d, Kata.DictCountCharInString(s), s);
+            Dictionary<char, int> d2 = new Dictionary<char, int>();
+            d2.Add('a', 2);
+            d2.Add('b', 1);
+            Assert.That(Kata.DictCountCharInString("aba"), Is.EqualTo(d2));
         }
 
         [Test]
@@ -144,7 +138,7 @@ namespace WeeklyCSharpPractice.NUnitTest.CodeWar
             try
             {
                 string input = ".... . -.--   .--- ..- -.. .";
-                string test = "....   .   -.--       .---   ..-   -..";
+           //     string test = "....   .   -.--       .---   ..-   -..";
                 string expected = "HEY JUDE";
 
                 string actual = Kata.MorseCodeDecoder(input);
@@ -167,12 +161,27 @@ namespace WeeklyCSharpPractice.NUnitTest.CodeWar
         [Test]
         public void StripCommentsTest()
         {
-            //Assert.AreEqual(
-            //        "apples, pears\ngrapes\nbananas",
-            //        Kata.StripComments("apples, pears # and bananas\ngrapes\nbananas !apples", new string[] { "#", "!" }));
+            Assert.AreEqual(
+                    "apples, pears\ngrapes\nbananas",
+                    Kata.StripComments("apples, pears # and bananas\ngrapes\nbananas !apples", new string[] { "#", "!" }));
 
             Assert.AreEqual("a\nc\nd", Kata.StripComments("a #b\nc\nd $e f g", new string[] { "#", "$" }));
             Assert.AreEqual("\na\nc\nd", Kata.StripComments("\na #b\nc\nd $e f g", new string[] { "#", "$" }));
+        }
+
+        [Test]
+        public void RangeExtractioinTest()
+        {
+            Assert.That(Kata.RangeExtraction(new[] { 1, 2 }), Is.EqualTo("1,2"));
+            Assert.That(Kata.RangeExtraction(new[] { 1, 2, 3 }), Is.EqualTo("1-3"));
+
+            Assert.That(Kata.RangeExtraction(new[] { -6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20 }),
+                Is.EqualTo("-6,-3-1,3-5,7-11,14,15,17-20")
+            );
+
+            Assert.That(Kata.RangeExtraction(new[] { -3, -2, -1, 2, 10, 15, 16, 18, 19, 20 }),
+                Is.EqualTo("-3--1,2,10,15,16,18-20")
+            );
         }
     }
 }
