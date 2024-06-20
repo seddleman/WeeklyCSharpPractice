@@ -26,7 +26,7 @@ namespace WeeklyCSharpPractice.Core.CodeWar.Kata
             return arr.Where(x => x != 0).Concat(arr.Where(x => x == 0)).ToArray();
         }
 
-        // Choosen Solutionb (but lots of controversy)
+        // Choosen Solution b (but lots of controversy)
         public static int[] yMoveZeroes(int[] arr)
         {
             return arr.OrderBy(x => x == 0).ToArray();

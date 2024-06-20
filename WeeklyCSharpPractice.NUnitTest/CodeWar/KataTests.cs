@@ -45,21 +45,22 @@ namespace WeeklyCSharpPractice.NUnitTest.CodeWar
         public static void FindOddOrEvenTest01()
         {
             int[] exampleTest1 = { 2, 6, 8, -10, 3 };
-            Assert.IsTrue(3 == Kata.FindOddOrEven(exampleTest1));
+
+            Assert.That(Kata.FindOddOrEven(exampleTest1), Is.EqualTo(3));
         }
 
         [Test]
         public static void FindOddOrEvenTest02()
         {
             int[] exampleTest2 = { 206847684, 1056521, 7, 17, 1901, 21104421, 7, 1, 35521, 1, 7781 };
-            Assert.IsTrue(206847684 == Kata.FindOddOrEven(exampleTest2));
+            Assert.That(Kata.FindOddOrEven(exampleTest2), Is.EqualTo(206847684));
         }
 
         [Test]
         public static void FindOddOrEvenTest03()
         {
             int[] exampleTest3 = { int.MaxValue, 0, 1 };
-            Assert.IsTrue(0 == Kata.FindOddOrEven(exampleTest3));
+            Assert.That(Kata.FindOddOrEven(exampleTest3), Is.EqualTo(0));
         }
 
         [Test]
